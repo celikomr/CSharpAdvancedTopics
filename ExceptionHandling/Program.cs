@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using ExceptionHandling;
+
+WorkBench.WriteInt(5);
+WorkBench.WriteInt(4);
