@@ -1,61 +1,60 @@
-﻿namespace Generics
+﻿namespace Generics;
+
+// Type parameter T in angle brackets
+public class GenericList<T>
 {
-    // Type parameter T in angle brackets
-    public class GenericList<T>
+    // The nested class is also generic on T.
+    private class Node
     {
-        // The nested class is also generic on T.
-        private class Node
+        // T used in non-generic constructor.
+        public Node(T t)
         {
-            // T used in non-generic constructor.
-            public Node(T t)
-            {
-                next = null;
-                data = t;
-            }
-
-            private Node? next;
-            public Node? Next
-            {
-                get { return next; }
-                set { next = value; }
-            }
-
-            // T as private member data type.
-            private T data;
-
-            // T as return type of property.
-            public T Data
-            {
-                get { return data; }
-                set { data = value; }
-            }
+            next = null;
+            data = t;
         }
 
-        private Node? head;
-
-        // Constructor
-        public GenericList()
+        private Node? next;
+        public Node? Next
         {
-            head = null;
+            get { return next; }
+            set { next = value; }
         }
 
-        // T as method parameter type:
-        public void AddHead(T t)
+        // T as private member data type.
+        private T data;
+
+        // T as return type of property.
+        public T Data
         {
-            Node n = new (t);
-            n.Next = head;
-            head = n;
+            get { return data; }
+            set { data = value; }
         }
+    }
 
-        public IEnumerator<T> GetEnumerator()
+    private Node? head;
+
+    // Constructor
+    public GenericList()
+    {
+        head = null;
+    }
+
+    // T as method parameter type:
+    public void AddHead(T t)
+    {
+        Node n = new (t);
+        n.Next = head;
+        head = n;
+    }
+
+    public IEnumerator<T> GetEnumerator()
+    {
+        Node? current = head;
+
+        while (current != null)
         {
-            Node? current = head;
-
-            while (current != null)
-            {
-                yield return current.Data;
-                current = current.Next;
-            }
+            yield return current.Data;
+            current = current.Next;
         }
     }
 }
