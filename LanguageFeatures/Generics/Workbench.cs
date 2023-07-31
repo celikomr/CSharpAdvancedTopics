@@ -1,5 +1,62 @@
 ﻿namespace Generics;
 
+#region Features
+/// <summary>
+/// Multiple Constraints: You can set multiple constraints for generics.
+/// This is useful for situations that require the type to implement more than one interface or derive from more than one base class.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class MyClass<T> where T : IComparable, IDisposable
+{
+    // T should implement Comparable interface and be consumed from IDisposable
+}
+
+/// <summary>
+/// New Constraint: With the where T : new() statement, you can restrict the generic type to types that only derive from classes that have a parameterless constructor.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class MyClass2<T> where T : new()
+{
+    public T CreateInstance()
+    {
+        return new T();
+    }
+}
+
+/// <summary>
+/// Value Type Constraints: You can constrain generic types to value types.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class MyClass3<T> where T : struct
+{
+    // T must be a value type (like int, float, struct)
+}
+
+/// <summary>
+/// Reference Type Constraints: You can constrain generic types to reference types.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class MyClass4<T> where T : class
+{
+    // T must be a reference type (like class or interface)
+}
+
+/// <summary>
+/// Constraints of Generic Classes: The generic class itself can have restrictions.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+public class MyClass5<T> where T : IComparable<T>
+{
+    // T must implement the IComparable<T> interface.
+}
+
+/// <summary>
+/// Delegate Constraints: You can also set constraints when defining a generic delegate.
+/// </summary>
+/// <typeparam name="T"></typeparam>
+/// <param name="arg"></param>
+public delegate void MyDelegate<T>(T arg) where T : class;
+#endregion
 
 #region Multiple Type Parameters
 public class Pair<T, U>
