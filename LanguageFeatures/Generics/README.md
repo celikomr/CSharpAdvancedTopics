@@ -18,10 +18,6 @@ public T Max<T>(T a, T b) where T : IComparable<T>
 
 In the above code, <T> indicates the type parameter, and the where T : IComparable<T> specifies a constraint that restricts T to types that implement the IComparable<T> interface.
 
-## Useful Links
-
-https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
-
 ## Best Practices Section
 
 When working with generics in C#, it's essential to follow best practices to ensure clean and maintainable code. Here are some best practices for using generics:
@@ -50,3 +46,6 @@ These advanced techniques showcase the full potential of generics in C#. They en
 
 Remember to experiment and practice with generics to fully grasp their capabilities and become proficient in using them effectively in your projects.
 
+## Useful Links
+
+https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
