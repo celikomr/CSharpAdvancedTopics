@@ -52,8 +52,8 @@ class Program
         #endregion
 
         #region Events with Delegates
-        Publisher publisher = new Publisher();
-        Subscriber subscriber = new Subscriber();
+        Publisher publisher = new();
+        Subscriber subscriber = new();
 
         publisher.EventOccurred += subscriber.HandleEvent;
         publisher.DoSomething();
@@ -65,7 +65,7 @@ class Program
 class Publisher
 {
     public delegate void EventHandler(string message);
-    public event EventHandler EventOccurred;
+    public event EventHandler? EventOccurred;
 
     public void DoSomething()
     {
